@@ -25,7 +25,7 @@ def find_local_paths():
     return {'log':ruta_logs,'config':ruta_conf, 'result':ruta_result}
 
 def configure_logging(paths):
-    logging.basicConfig(filename=paths['log'], level=logging.INFO, format= "%(asctime)s - %(levelname)s - %(message)s")
+    logging.basicConfig(filename=paths['log'], level=logging.INFO, format= "%(asctime)s - %(levelname)s - %(message)s",encoding='utf-8')
 
 def configure_parameters(paths):
     config = configparser.ConfigParser()
@@ -96,7 +96,7 @@ if __name__ == '__main__':
     paths = find_local_paths()
     configure_logging(paths)
     params = configure_parameters(paths)
-
+    logging.info("--------------")
     try:
         if os.path.exists(params["base_path"]):
             logging.info("Iniciando...")
@@ -111,7 +111,7 @@ if __name__ == '__main__':
         else:
             df = pd.DataFrame.from_dict({'Resultado':['Sin matrices...']})
             excel_writer(paths['result'],df)
-            logging.info("Sin archivos...")
+            logging.info("No se encontró ningún archivo Matrices.xlsx")
     except Exception as e:
         logging.error(e)
 
