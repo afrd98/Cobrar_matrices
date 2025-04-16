@@ -13,7 +13,7 @@ DESTINATION_SQL_TABLE = 'ETL_COBRARMATRICES'
 RESULT_SQL_VIEW = 'vw_ETL_COBRARMATRICES_RESULTADO'
 PROCEDURE_NAME = 'SPETL_COBRARMATRICES'
 EXCEL_COLUMN_WIDTH = 40
-
+#uhhh
 #Application configuration functions.
 def find_local_paths():
     if getattr(sys,'frozen',False):
